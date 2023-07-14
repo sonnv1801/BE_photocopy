@@ -39,20 +39,18 @@ const maintenanceSuppliesController = {
       res.status(500).json(err);
     }
   },
-  getSuppliesByName: async (req, res) => {
+  getSuppliesByID: async (req, res) => {
     try {
-      const maintenanceSupplies = await MaintenanceSupplies.findOne({
-        name: req.params.name,
-      });
-      if (!maintenanceSupplies) {
-        return res.status(404).json({ message: "Vật tư không tồn tại" });
+      const suppliesId = req.params.id;
+      const supplies = await MaintenanceSupplies.findById(suppliesId);
+
+      if (!supplies) {
+        return res.status(404).json({ message: "Supplies not found" });
       }
-      res.json(maintenanceSupplies);
-    } catch (err) {
-      console.error(err);
-      res
-        .status(500)
-        .json({ message: "Đã xảy ra lỗi trong quá trình xử lý yêu cầu" });
+
+      res.json(supplies);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
     }
   },
 };

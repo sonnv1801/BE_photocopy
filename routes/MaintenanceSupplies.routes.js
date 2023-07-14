@@ -4,7 +4,7 @@ const maintenanceSuppliesController = require("../controllers/MaintenanceSupplie
 
 router.post("/", maintenanceSuppliesController.createSupplies);
 router.get("/", maintenanceSuppliesController.getAllSupplies);
-router.get("/:id", maintenanceSuppliesController.getSuppliesByName);
+router.get("/:id", maintenanceSuppliesController.getSuppliesByID);
 router.delete("/:id", maintenanceSuppliesController.deleteSupplies);
 
 module.exports = router;

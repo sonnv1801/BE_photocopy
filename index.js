@@ -16,6 +16,8 @@ const orderComboRoute = require("./routes/OrderCombo.routes");
 const maintenanceRoute = require("./routes/Maintenance.routes");
 const userRoute = require("./routes/User.routes");
 const maintenanceSuppliesRoute = require("./routes/MaintenanceSupplies.routes");
+const machinecodeRoute = require("./routes/MachineCode.routes");
+const machinelocationRoute = require("./routes/MachineLocation.routes");
 const PORT = 8000;
 const app = express();
 
@@ -50,6 +52,8 @@ app.use("/v1/ordercombo", orderComboRoute);
 app.use("/v1/maintenance", maintenanceRoute);
 app.use("/v1/user", userRoute);
 app.use("/v1/maintenancesupplies", maintenanceSuppliesRoute);
+app.use("/v1/machinecode", machinecodeRoute);
+app.use("/v1/machinelocation", machinelocationRoute);
 
 app.listen(8000, () => {
   console.log(`Server is runing port ${PORT}`);

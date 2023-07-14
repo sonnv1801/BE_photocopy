@@ -43,11 +43,6 @@ const maintenanceSchema = new mongoose.Schema({
   supplies: {
     type: String,
   },
-  status: {
-    type: String,
-    enum: ["pending", "completed"],
-    default: "pending",
-  },
   repairStatus: {
     type: String,
     enum: ["pending", "completed"],

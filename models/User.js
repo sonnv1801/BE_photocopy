@@ -13,14 +13,11 @@ const userSchema = new mongoose.Schema(
       require: true,
       minlength: 6,
       maxlength: 20,
-      unique: true,
     },
     email: {
       type: String,
-      require: true,
       minlength: 10,
       maxlength: 50,
-      unique: true,
     },
     password: {
       type: String,
@@ -33,7 +30,6 @@ const userSchema = new mongoose.Schema(
     },
     address: {
       type: String,
-      require: true,
     },
     image: {
       type: String,

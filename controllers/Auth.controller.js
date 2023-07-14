@@ -19,6 +19,7 @@ const authController = {
         address: req.body.address,
         email: req.body.email,
         password: hashed,
+        role: req.body.role,
       });
 
       //Save user to DB
