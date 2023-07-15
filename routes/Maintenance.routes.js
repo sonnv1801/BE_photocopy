@@ -13,4 +13,6 @@ router.put(
 );
 router.delete("/:id", maintenanceController.deleteMaintenance);
 
+router.post("/search", maintenanceController.searchMaintenance);
+
 module.exports = router;

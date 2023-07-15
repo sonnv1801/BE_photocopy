@@ -135,6 +135,25 @@ const maintenanceController = {
       res.status(500).json(err);
     }
   },
+  searchMaintenance: async (req, res) => {
+    const keyword = req.body.keyword;
+
+    try {
+      const results = await Maintenance.find({
+        $or: [
+          { nameProduct: { $regex: keyword, $options: "i" } },
+          { fullname: { $regex: keyword, $options: "i" } },
+          { address: { $regex: keyword, $options: "i" } },
+          { machineCode: { $regex: keyword, $options: "i" } },
+          { machineLocation: { $regex: keyword, $options: "i" } },
+        ],
+      });
+
+      res.json(results);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  },
 };
 
 module.exports = maintenanceController;
